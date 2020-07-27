@@ -30,12 +30,10 @@ function setup() {
 
 	engine = Engine.create();
 	world = engine.world;
-	
-	keyPressed()
+
 	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.5, isStatic:true});
 	World.add(world, packageBody);
 	
-
 	//Create a Ground
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
  	World.add(world, ground);
@@ -58,6 +56,6 @@ function draw() {
 function keyPressed() {
  if (keyCode === DOWN_ARROW) {
 	// Look at the hints in the document and understand how to make the package body fall only on
-    packageBody = Bodies.circle({isStatic:false});
+    Matter.Body.setStatic(packageBody,false);
  }
 }
